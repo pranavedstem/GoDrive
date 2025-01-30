@@ -12,7 +12,8 @@ class Maps extends StatefulWidget {
 class MapsState extends State<Maps> {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(10.0159, 76.3419);
+  final LatLng _center = const LatLng( 10.007010160804644, 76.37400401568937);
+  final LatLng _exact = const LatLng(10.0159, 76.3419);
   
 
   void _onMapCreated(GoogleMapController controller) {
@@ -32,6 +33,20 @@ class MapsState extends State<Maps> {
           target: _center,
           zoom: 12.0,
         ),
+       markers: {
+    Marker(
+      markerId: const MarkerId('_currentLocation'),
+      icon: BitmapDescriptor.defaultMarker, 
+      position: _center, 
+      // infoWindow: const InfoWindow(title: 'Current Location'),
+    ),
+    Marker(
+      markerId: const MarkerId('_sourceLocation'),
+      icon: BitmapDescriptor.defaultMarker, 
+      position: _exact, 
+      // infoWindow: const InfoWindow(title: 'Current Location'),
+    ),
+  },
       ),
     );
   }
