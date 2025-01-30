@@ -1,3 +1,4 @@
+// import 'package:dummyprojecr/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class ServiceScreen extends StatelessWidget {
@@ -14,14 +15,15 @@ class ServiceScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TappableContainer(
-                    label: 'Tap 1',
+
+                    label: 'Ride',
                     color: Colors.blue,
                     onTap: () {
-                      
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => Home(address: ''),));
                     },
                   ),
                   TappableContainer(
-                    label: 'Tap 2',
+                    label: 'Auto plus',
                     color: Colors.green,
                     onTap: () {
                       

@@ -41,7 +41,7 @@ class MapsState extends State<Maps> {
       // infoWindow: const InfoWindow(title: 'Current Location'),
     ),
     Marker(
-      markerId: const MarkerId('_sourceLocation'),
+      markerId: const MarkerId('_sourceocation'),
       icon: BitmapDescriptor.defaultMarker, 
       position: _exact, 
       // infoWindow: const InfoWindow(title: 'Current Location'),

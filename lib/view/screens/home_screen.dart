@@ -1,4 +1,5 @@
 import 'package:dummyprojecr/view/screens/maps.dart';
+import 'package:dummyprojecr/view/screens/ride_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
@@ -84,7 +85,7 @@ class HomeState extends State<Home> {
                           TextFormField(
                             controller: addressController,
                             decoration: const InputDecoration(
-                              hintText: 'Current Location',
+                              labelText: 'Current Location',
                               border: OutlineInputBorder(),
                               prefixIcon: Icon(Icons.location_on),
                             ),
@@ -102,12 +103,13 @@ class HomeState extends State<Home> {
                     ),
                   ),
                 ),
+                
                 FloatingActionButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Maps(),
+                        builder: (context) => Maps(),
                       ),
                     );
                   },
@@ -116,6 +118,13 @@ class HomeState extends State<Home> {
                 ),
               ],
             ),
+            const SizedBox(height: 16,),
+            ElevatedButton(onPressed: (){ Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>  RideBookingScreen()
+                      ),
+                    );}, child: Text('Book Ride')),
           ],
         ),
       ),
