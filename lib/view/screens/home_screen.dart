@@ -47,12 +47,13 @@ class HomeState extends State<Home> {
         // ignore: deprecated_member_use
         desiredAccuracy: LocationAccuracy.high);
 
-    List<Placemark> placemarks = await placemarkFromCoordinates(
-        position.latitude, position.longitude);
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
 
     if (placemarks.isNotEmpty) {
       Placemark place = placemarks[0];
-      String formattedAddress = "${place.street}, ${place.locality}, ${place.country}";
+      String formattedAddress =
+          "${place.street}, ${place.locality}, ${place.country}";
       setState(() {
         addressController.text = formattedAddress;
       });
@@ -103,7 +104,6 @@ class HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                
                 FloatingActionButton(
                   onPressed: () {
                     Navigator.push(
@@ -118,23 +118,21 @@ class HomeState extends State<Home> {
                 ),
               ],
             ),
-            const SizedBox(height: 16,),
-            ElevatedButton(onPressed: (){ Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>  RideBookingScreen()
-                      ),
-                    );}, child: Text('Book Ride')),
+            const SizedBox(
+              height: 16,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => RideBookingScreen()),
+                  );
+                },
+                child: Text('Book Ride')),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-
-

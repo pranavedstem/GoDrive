@@ -2,8 +2,6 @@ import 'package:dummyprojecr/models/signupmodel.dart';
 import 'package:dummyprojecr/view/screens/signin.dart';
 import 'package:flutter/material.dart';
 
-
-
 class ProfilePage extends StatefulWidget {
   final User user;
 
@@ -58,7 +56,8 @@ class ProfilePageState extends State<ProfilePage> {
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    backgroundImage: const AssetImage('assets/images/splash.png'), 
+                    backgroundImage:
+                        const AssetImage('assets/images/splash.png'),
                     backgroundColor: Colors.grey[300],
                   ),
                   const SizedBox(height: 12),
@@ -82,7 +81,6 @@ class ProfilePageState extends State<ProfilePage> {
             ),
             const SizedBox(height: 20),
 
-            
             Card(
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -96,21 +94,28 @@ class ProfilePageState extends State<ProfilePage> {
                       Column(
                         children: [
                           _buildEditableField(
-                              label: 'Name', initialValue: editableUser.name, onChanged: (value) => editableUser.name = value),
+                              label: 'Name',
+                              initialValue: editableUser.name,
+                              onChanged: (value) => editableUser.name = value),
                           _buildEditableField(
                               label: 'Phone Number',
                               initialValue: editableUser.phoneNumber,
-                              onChanged: (value) => editableUser.phoneNumber = value),
+                              onChanged: (value) =>
+                                  editableUser.phoneNumber = value),
                           _buildEditableField(
-                              label: 'Email', initialValue: editableUser.email, onChanged: (value) => editableUser.email = value),
+                              label: 'Email',
+                              initialValue: editableUser.email,
+                              onChanged: (value) => editableUser.email = value),
                           _buildEditableField(
                               label: 'Username',
                               initialValue: editableUser.username,
-                              onChanged: (value) => editableUser.username = value),
+                              onChanged: (value) =>
+                                  editableUser.username = value),
                           const SizedBox(height: 20),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 32, vertical: 12),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
@@ -119,7 +124,8 @@ class ProfilePageState extends State<ProfilePage> {
                               setState(() {
                                 isEditing = false;
                                 widget.user.name = editableUser.name;
-                                widget.user.phoneNumber = editableUser.phoneNumber;
+                                widget.user.phoneNumber =
+                                    editableUser.phoneNumber;
                                 widget.user.email = editableUser.email;
                                 widget.user.username = editableUser.username;
                               });
@@ -131,17 +137,23 @@ class ProfilePageState extends State<ProfilePage> {
                     else
                       Column(
                         children: [
-                          _buildProfileDetail(label: 'Name', value: widget.user.name),
+                          _buildProfileDetail(
+                              label: 'Name', value: widget.user.name),
                           Divider(),
-                          _buildProfileDetail(label: 'Phone Number', value: widget.user.phoneNumber),
+                          _buildProfileDetail(
+                              label: 'Phone Number',
+                              value: widget.user.phoneNumber),
                           Divider(),
-                          _buildProfileDetail(label: 'Email', value: widget.user.email),
+                          _buildProfileDetail(
+                              label: 'Email', value: widget.user.email),
                           Divider(),
-                          _buildProfileDetail(label: 'Username', value: widget.user.username),
+                          _buildProfileDetail(
+                              label: 'Username', value: widget.user.username),
                           const SizedBox(height: 20),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 32, vertical: 12),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),

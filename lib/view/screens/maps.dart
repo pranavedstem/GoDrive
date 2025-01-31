@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
 class Maps extends StatefulWidget {
   const Maps({super.key});
 
@@ -12,9 +11,8 @@ class Maps extends StatefulWidget {
 class MapsState extends State<Maps> {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng( 10.007010160804644, 76.37400401568937);
+  final LatLng _center = const LatLng(10.007010160804644, 76.37400401568937);
   final LatLng _exact = const LatLng(10.0159, 76.3419);
-  
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -33,20 +31,20 @@ class MapsState extends State<Maps> {
           target: _center,
           zoom: 12.0,
         ),
-       markers: {
-    Marker(
-      markerId: const MarkerId('_currentLocation'),
-      icon: BitmapDescriptor.defaultMarker, 
-      position: _center, 
-      // infoWindow: const InfoWindow(title: 'Current Location'),
-    ),
-    Marker(
-      markerId: const MarkerId('_sourceocation'),
-      icon: BitmapDescriptor.defaultMarker, 
-      position: _exact, 
-      // infoWindow: const InfoWindow(title: 'Current Location'),
-    ),
-  },
+        markers: {
+          Marker(
+            markerId: const MarkerId('destination'),
+            icon: BitmapDescriptor.defaultMarker,
+            position: _center,
+            // infoWindow: const InfoWindow(title: 'Current Location'),
+          ),
+          Marker(
+            markerId: const MarkerId('_sourceocation'),
+            icon: BitmapDescriptor.defaultMarker,
+            position: _exact,
+            // infoWindow: const InfoWindow(title: 'Current Location'),
+          ),
+        },
       ),
     );
   }

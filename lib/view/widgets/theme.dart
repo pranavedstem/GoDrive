@@ -5,7 +5,8 @@ class AppTheme {
     primarySwatch: Colors.blue,
     brightness: Brightness.light,
     textTheme: const TextTheme(
-      displayLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
+      displayLarge: TextStyle(
+          fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
       bodyLarge: TextStyle(fontSize: 16, color: Colors.black87),
     ),
     buttonTheme: const ButtonThemeData(
@@ -18,7 +19,8 @@ class AppTheme {
     primarySwatch: Colors.blue,
     brightness: Brightness.dark,
     textTheme: const TextTheme(
-      displayLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+      displayLarge: TextStyle(
+          fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
       bodyLarge: TextStyle(fontSize: 16, color: Colors.white70),
     ),
     buttonTheme: const ButtonThemeData(

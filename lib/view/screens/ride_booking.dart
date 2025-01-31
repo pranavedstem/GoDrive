@@ -9,7 +9,6 @@ class RideBookingScreen extends StatefulWidget {
 }
 
 class RideBookingScreenState extends State<RideBookingScreen> {
-  // Sample ride data
   RideModel ride = RideModel(
     userId: "USR12345",
     rideId: "RIDE67890",
@@ -49,22 +48,25 @@ class RideBookingScreenState extends State<RideBookingScreen> {
               buildInfoTile("User ID", ride.userId),
               buildInfoTile("Ride ID", ride.rideId),
               buildInfoTile("Driver Name", ride.driverName),
-              buildInfoTile("Vehicle", "${ride.vehicleName} (${ride.vehicleNumber})"),
-              buildInfoTile("Total Fare", "\$${ride.totalFare.toStringAsFixed(2)}"),
+              buildInfoTile(
+                  "Vehicle", "${ride.vehicleName} (${ride.vehicleNumber})"),
+              buildInfoTile(
+                  "Total Fare", "\$${ride.totalFare.toStringAsFixed(2)}"),
               buildInfoTile("Date & Time", ride.rideDateTime.toString()),
-              
               const SizedBox(height: 6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
                     onPressed: bookRide,
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.green),
                     child: Text("Book Ride"),
                   ),
                   ElevatedButton(
                     onPressed: cancelRide,
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     child: Text("Cancel Ride"),
                   ),
                 ],
@@ -78,8 +80,8 @@ class RideBookingScreenState extends State<RideBookingScreen> {
 
   Widget buildInfoTile(String title, String value) {
     return Card(
-      elevation: 2,
-      margin: EdgeInsets.symmetric(vertical: 8),
+      // elevation: 2,
+      margin: EdgeInsets.symmetric(vertical: 3),
       child: ListTile(
         title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(value),

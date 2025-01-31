@@ -6,60 +6,56 @@ class ServiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Service'),centerTitle: true,),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Service'),
+        centerTitle: true,
+      ),
       body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TappableContainer(
-
-                    label: 'Ride',
-                    color: Colors.blue,
-                    onTap: () {
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => Home(address: ''),));
-                    },
-                  ),
-                  TappableContainer(
-                    label: 'Auto plus',
-                    color: Colors.green,
-                    onTap: () {
-                      
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(height: 20), 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButtonContainer(
-                    icon: Icons.home,
-                    color: Colors.orange,
-                    onTap: () {
-                      
-                    },
-                  ),
-                  IconButtonContainer(
-                    icon: Icons.search,
-                    color: Colors.purple,
-                    onTap: () {
-                     
-                    },
-                  ),
-                  IconButtonContainer(
-                    icon: Icons.settings,
-                    color: Colors.red,
-                    onTap: () {
-                    },
-                  ),
-                ],
-              ),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TappableContainer(
+                  label: 'Ride',
+                  color: Colors.blue,
+                  onTap: () {
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => Home(address: ''),));
+                  },
+                ),
+                TappableContainer(
+                  label: 'Auto plus',
+                  color: Colors.green,
+                  onTap: () {},
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButtonContainer(
+                  icon: Icons.home,
+                  color: Colors.orange,
+                  onTap: () {},
+                ),
+                IconButtonContainer(
+                  icon: Icons.search,
+                  color: Colors.purple,
+                  onTap: () {},
+                ),
+                IconButtonContainer(
+                  icon: Icons.settings,
+                  color: Colors.red,
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ],
         ),
+      ),
     );
   }
 }
@@ -69,7 +65,8 @@ class TappableContainer extends StatelessWidget {
   final Color color;
   final VoidCallback onTap;
 
-  const TappableContainer({super.key,
+  const TappableContainer({
+    super.key,
     required this.label,
     required this.color,
     required this.onTap,
@@ -99,7 +96,8 @@ class IconButtonContainer extends StatelessWidget {
   final Color color;
   final VoidCallback onTap;
 
-  const IconButtonContainer({super.key,
+  const IconButtonContainer({
+    super.key,
     required this.icon,
     required this.color,
     required this.onTap,
@@ -112,7 +110,8 @@ class IconButtonContainer extends StatelessWidget {
       child: Container(
         width: 80,
         height: 80,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
           color: color,
           // shape: BoxShape.circle,
         ),

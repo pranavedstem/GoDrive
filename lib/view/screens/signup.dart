@@ -3,7 +3,6 @@ import 'package:dummyprojecr/models/signupmodel.dart';
 import 'package:dummyprojecr/view/screens/signin.dart';
 import 'package:flutter/material.dart';
 
-
 class SignUpPage extends StatefulWidget {
   static User? user;
 
@@ -15,7 +14,8 @@ class SignUpPage extends StatefulWidget {
 
 class SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
-  final User _user = User(name: '', phoneNumber: '', email: '', username: '', password: '');
+  final User _user =
+      User(name: '', phoneNumber: '', email: '', username: '', password: '');
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,8 @@ class SignUpPageState extends State<SignUpPage> {
                         onSaved: (value) => _user.name = value ?? '',
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(labelText: 'Phone Number'),
+                        decoration:
+                            const InputDecoration(labelText: 'Phone Number'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your phone number';
@@ -77,7 +78,8 @@ class SignUpPageState extends State<SignUpPage> {
                         onSaved: (value) => _user.email = value ?? '',
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(labelText: 'Username'),
+                        decoration:
+                            const InputDecoration(labelText: 'Username'),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your username';
@@ -87,7 +89,8 @@ class SignUpPageState extends State<SignUpPage> {
                         onSaved: (value) => _user.username = value ?? '',
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(labelText: 'Password'),
+                        decoration:
+                            const InputDecoration(labelText: 'Password'),
                         obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -106,7 +109,9 @@ class SignUpPageState extends State<SignUpPage> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => HomeScreen(user: _user,),
+                                builder: (context) => HomeScreen(
+                                  user: _user,
+                                ),
                               ),
                             );
                           }
@@ -121,7 +126,8 @@ class SignUpPageState extends State<SignUpPage> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SignInPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const SignInPage()),
                     );
                   },
                   child: const Text('I already have an account'),
@@ -134,4 +140,3 @@ class SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-

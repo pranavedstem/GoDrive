@@ -26,7 +26,8 @@ class _LocationState extends State<Location> {
                     // elevation: 2,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
-                      side: const BorderSide(color: Color.fromARGB(255, 117, 116, 116), width: 2),
+                      side: const BorderSide(
+                          color: Color.fromARGB(255, 117, 116, 116), width: 2),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -56,14 +57,16 @@ class _LocationState extends State<Location> {
                 FloatingActionButton(
                   onPressed: () {
                     Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const Maps(),
-              ),
-            );
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Maps(),
+                      ),
+                    );
                   },
                   mini: true,
-                  child: const Icon(Icons.add,),
+                  child: const Icon(
+                    Icons.add,
+                  ),
                 ),
               ],
             ),

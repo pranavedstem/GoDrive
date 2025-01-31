@@ -21,32 +21,32 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
- @override
-Widget build(BuildContext context) {
-  double screenWidth = MediaQuery.of(context).size.width;
-  return Scaffold(
-    backgroundColor: Colors.black,
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Flexible(
-            // child:
-            //  Text('hii'),
-            child: Image.asset(
-              'assets/images/splash.png',
-              width: screenWidth,
-              fit: BoxFit.contain,
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              // child:
+              //  Text('hii'),
+              child: Image.asset(
+                'assets/images/splash.png',
+                width: screenWidth,
+                fit: BoxFit.contain,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
-}
- class GetStarted extends StatelessWidget {
+class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
 
   @override
@@ -57,19 +57,18 @@ Widget build(BuildContext context) {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          
           Image.asset(
             'assets/images/splash.png',
             height: screenHeight,
             width: screenWidth,
             fit: BoxFit.contain,
           ),
-          
           Positioned(
-            bottom: 50, 
+            bottom: 50,
             left: 0,
             right: 0,
-            child: Center(widthFactor: 10,
+            child: Center(
+              widthFactor: 10,
               child: FilledButton.icon(
                 onPressed: () {
                   Navigator.of(context).push(
@@ -78,7 +77,10 @@ Widget build(BuildContext context) {
                     ),
                   );
                 },
-                label: Text('Get Started',selectionColor: Colors.white,),
+                label: Text(
+                  'Get Started',
+                  selectionColor: Colors.white,
+                ),
                 icon: Icon(Icons.arrow_forward_outlined),
               ),
             ),

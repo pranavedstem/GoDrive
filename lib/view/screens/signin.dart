@@ -37,7 +37,7 @@ class SignInPageState extends State<SignInPage> {
                             Theme.of(context).brightness == Brightness.light
                                 ? 'assets/images/lightlogo.png'
                                 : 'assets/images/darklogo.png',
-                            width: MediaQuery.of(context).size.width * 0.8, 
+                            width: MediaQuery.of(context).size.width * 0.8,
                             height: 200,
                           ),
                         ),
@@ -48,7 +48,9 @@ class SignInPageState extends State<SignInPage> {
                           ),
                           keyboardType: TextInputType.emailAddress,
                           validator: (value) {
-                            if (value == null || value.trim().isEmpty || !value.contains('@')) {
+                            if (value == null ||
+                                value.trim().isEmpty ||
+                                !value.contains('@')) {
                               return 'Enter a valid email address';
                             }
                             return null;
@@ -74,16 +76,20 @@ class SignInPageState extends State<SignInPage> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               _formKey.currentState!.save();
-                              if (_email == SignUpPage.user?.email && _password == SignUpPage.user?.password) {
+                              if (_email == SignUpPage.user?.email &&
+                                  _password == SignUpPage.user?.password) {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HomeScreen(user: SignUpPage.user!),
+                                    builder: (context) =>
+                                        HomeScreen(user: SignUpPage.user!),
                                   ),
                                 );
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('Invalid email or password')),
+                                  const SnackBar(
+                                      content:
+                                          Text('Invalid email or password')),
                                 );
                               }
                             }
@@ -97,7 +103,8 @@ class SignInPageState extends State<SignInPage> {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const SignUpPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpPage()),
                       );
                     },
                     child: const Text('Create an Account'),
@@ -111,5 +118,3 @@ class SignInPageState extends State<SignInPage> {
     );
   }
 }
-
-

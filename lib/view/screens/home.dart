@@ -24,11 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     final List<Widget> widgetOptions = <Widget>[
-      const Home(address: '',),
+      const Home(
+        address: '',
+      ),
       const ServiceScreen(),
-      ProfilePage(user: widget.user), 
+      ProfilePage(user: widget.user),
     ];
 
     return Scaffold(
@@ -57,6 +58,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-
