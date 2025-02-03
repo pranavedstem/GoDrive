@@ -6,7 +6,7 @@ class RideModel {
   final String driverName;
   final String vehicleName;
   final String vehicleNumber;
-  final double totalFare;
+   double totalFare;
   final DateTime rideDateTime;
 
   RideModel({

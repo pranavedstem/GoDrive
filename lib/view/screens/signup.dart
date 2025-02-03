@@ -59,6 +59,7 @@ class SignUpPageState extends State<SignUpPage> {
                       TextFormField(
                         decoration:
                             const InputDecoration(labelText: 'Phone Number'),
+                            keyboardType: TextInputType.phone,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your phone number';

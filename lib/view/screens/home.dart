@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(199, 137, 88, 10),
+        selectedItemColor: const Color.fromARGB(198, 46, 66, 247),
         onTap: _onItemTapped,
       ),
     );

@@ -1,4 +1,5 @@
 // import 'package:dummyprojecr/view/screens/home_screen.dart';
+import 'package:dummyprojecr/view/screens/startride.dart';
 import 'package:flutter/material.dart';
 
 class ServiceScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class ServiceScreen extends StatelessWidget {
                   label: 'Ride',
                   color: Colors.blue,
                   onTap: () {
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) => Home(address: ''),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => StartRide()));
                   },
                 ),
                 TappableContainer(

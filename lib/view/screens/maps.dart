@@ -12,7 +12,7 @@ class MapsState extends State<Maps> {
   late GoogleMapController mapController;
 
   final LatLng _center = const LatLng(10.007010160804644, 76.37400401568937);
-  final LatLng _exact = const LatLng(10.0159, 76.3419);
+  final LatLng _endlocation = const LatLng(10.0159, 76.3419);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -36,13 +36,13 @@ class MapsState extends State<Maps> {
             markerId: const MarkerId('destination'),
             icon: BitmapDescriptor.defaultMarker,
             position: _center,
-            // infoWindow: const InfoWindow(title: 'Current Location'),
+            
           ),
           Marker(
-            markerId: const MarkerId('_sourceocation'),
+            markerId: const MarkerId('sourceocation'),
             icon: BitmapDescriptor.defaultMarker,
-            position: _exact,
-            // infoWindow: const InfoWindow(title: 'Current Location'),
+            position: _endlocation,
+           
           ),
         },
       ),
@@ -78,8 +78,8 @@ class MapsState extends State<Maps> {
 //   Future<void> _getPolyline() async {
 //     PolylinePoints polylinePoints = PolylinePoints();
 
-//     LatLng startLocation = LatLng(37.7749, -122.4194); // San Francisco
-//     LatLng endLocation = LatLng(34.0522, -118.2437); // Los Angeles
+//     LatLng startLocation = LatLng(10.007010160804644, 76.37400401568937); 
+//     LatLng endLocation = LatLng(10.0159, 76.3419); 
 
 //     PolylineRequest request = PolylineRequest(
 //       origin: PointLatLng(startLocation.latitude, startLocation.longitude),
@@ -142,8 +142,3 @@ class MapsState extends State<Maps> {
 //   }
 // }
 
-// void main() {
-//   runApp(MaterialApp(
-//     home: Maps(),
-//   ));
-// }
