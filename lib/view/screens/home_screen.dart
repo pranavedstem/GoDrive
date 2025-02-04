@@ -6,7 +6,9 @@ import 'package:geocoding/geocoding.dart';
 
 class Home extends StatefulWidget {
   final String address;
-  const Home({super.key, required this.address});
+  const Home({super.key, 
+  required this.address
+  });
 
   @override
   HomeState createState() => HomeState();
@@ -136,3 +138,4 @@ class HomeState extends State<Home> {
     );
   }
 }
+

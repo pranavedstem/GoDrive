@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   final User user;
-
+  
   const HomeScreen({super.key, required this.user});
 
   @override

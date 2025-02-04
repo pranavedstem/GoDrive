@@ -1,4 +1,4 @@
-import 'package:dummyprojecr/models/reide_type_model.dart';
+import 'package:dummyprojecr/models/ride_type_model.dart';
 import 'package:flutter/material.dart';
 import 'package:dummyprojecr/models/ride_model.dart';
 
