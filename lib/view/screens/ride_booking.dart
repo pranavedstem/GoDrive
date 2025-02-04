@@ -19,22 +19,22 @@ class RideBookingScreenState extends State<RideBookingScreen> {
     driverName: "Joyal",
     vehicleName: "Maruti Suzuki Swift Dezire",
     vehicleNumber: "KL 08 AZ 9891",
-    totalFare: 255, // Default Economy Fare
+    totalFare: 255, 
     rideDateTime: DateTime.now(),
   );
 
-  // Ride Type Options
+ 
   final List<RideType> rideTypes = [
     RideType(type: "Economy", baseFare: 255),
     RideType(type: "Premium", baseFare: 380),
   ];
 
-  int selectedIndex = 0; // Default selection (Economy)
+  int selectedIndex = 0; 
 
   void updateFare(int index) {
     setState(() {
       selectedIndex = index;
-      ride = RideModel( // Create a new instance (since totalFare is final)
+      ride = RideModel( 
         userId: ride.userId,
         rideId: ride.rideId,
         startLocation: ride.startLocation,
