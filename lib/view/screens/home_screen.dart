@@ -1,3 +1,4 @@
+
 import 'package:dummyprojecr/view/screens/maps.dart';
 import 'package:dummyprojecr/view/screens/ride_booking.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:geocoding/geocoding.dart';
 class Home extends StatefulWidget {
   final String address;
   const Home({super.key, 
-  required this.address
+  required this.address,
   });
 
   @override
