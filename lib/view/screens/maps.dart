@@ -202,7 +202,8 @@ class Maps extends StatefulWidget {
 
 class MapsState extends State<Maps> {
   late GoogleMapController mapController;
-  final ValueNotifier<LatLng> centerNotifier = ValueNotifier<LatLng>(const LatLng(0.0, 0.0)); 
+  final ValueNotifier<LatLng> centerNotifier =
+      ValueNotifier<LatLng>(const LatLng(0.0, 0.0));
 
   LatLng? _destination;
   final Set<Polyline> _polylines = {};
@@ -215,7 +216,6 @@ class MapsState extends State<Maps> {
     _getCurrentLocation();
   }
 
-  
   Future<void> _getCurrentLocation() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) return;
@@ -252,7 +252,6 @@ class MapsState extends State<Maps> {
     );
   }
 
-  
   void _onMapTapped(LatLng tappedPoint) {
     setState(() {
       _destination = tappedPoint;
@@ -260,7 +259,6 @@ class MapsState extends State<Maps> {
     });
   }
 
-  
   Future<void> _getRoute() async {
     if (_destination == null) return;
 
@@ -278,7 +276,8 @@ class MapsState extends State<Maps> {
       if ((data["routes"] as List).isNotEmpty) {
         var route = data["routes"][0];
         var legs = route["legs"][0];
-        _distance = legs["distance"]["value"] / 1000; 
+        _distance = legs["distance"]["value"] / 1000;
+        // print(_distance);
 
         for (var step in legs["steps"]) {
           polylineCoordinates.add(LatLng(
@@ -332,7 +331,8 @@ class MapsState extends State<Maps> {
                     icon: BitmapDescriptor.defaultMarkerWithHue(
                         BitmapDescriptor.hueBlue),
                     position: center,
-                    infoWindow: InfoWindow(title: "Your Location", snippet: _address),
+                    infoWindow:
+                        InfoWindow(title: "Your Location", snippet: _address),
                   ),
                   if (_destination != null)
                     Marker(
@@ -343,12 +343,10 @@ class MapsState extends State<Maps> {
                     ),
                 },
                 polylines: _polylines,
-                onTap: _onMapTapped, 
+                onTap: _onMapTapped,
               );
             },
           ),
-
-          
           Positioned(
             top: 80,
             left: 16,
@@ -376,8 +374,6 @@ class MapsState extends State<Maps> {
               ),
             ),
           ),
-
-          
           Positioned(
             top: 20,
             right: 16,
