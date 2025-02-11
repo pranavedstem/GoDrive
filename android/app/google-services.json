@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "183358742780",
+    "project_id": "godrive-7591e",
+    "storage_bucket": "godrive-7591e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183358742780:android:3547a9c57325709359f779",
+        "android_client_info": {
+          "package_name": "com.example.dummyprojecr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1tHGJG2Gg2_49z1UMuHj6LMsZFMkKxAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

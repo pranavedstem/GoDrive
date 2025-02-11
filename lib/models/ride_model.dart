@@ -1,23 +1,21 @@
-class RideModel {
-  final String userId;
-  final String rideId;
-  final String startLocation;
-  final String endLocation;
-  final String driverName;
-  final String vehicleName;
-  final String vehicleNumber;
-   double totalFare;
-  final DateTime rideDateTime;
+class Ride {
+  String startLocation;
+  String endLocation;
+  String userId;
+  String rideId;
+  String driverName;
+  String vehicleName;
+  String vehicleNumber;
+  double totalFare;
 
-  RideModel({
-    required this.userId,
-    required this.rideId,
+  Ride({
     required this.startLocation,
     required this.endLocation,
-    required this.driverName,
-    required this.vehicleName,
-    required this.vehicleNumber,
-    required this.totalFare,
-    required this.rideDateTime,
+    this.userId = "12345",
+    this.rideId = "RIDE-67890",
+    this.driverName = "Pranav",
+    this.vehicleName = "Toyota Prius",
+    this.vehicleNumber = "XYZ 1234",
+    this.totalFare = 100.0, 
   });
 }

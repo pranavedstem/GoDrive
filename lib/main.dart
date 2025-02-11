@@ -1,9 +1,17 @@
 import 'package:dummyprojecr/view/screens/splash.dart';
 import 'package:dummyprojecr/view/widgets/theme.dart';
+import 'package:dummyprojecr/viewModel/home_view_model.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HomeViewModel()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
