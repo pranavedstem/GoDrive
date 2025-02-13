@@ -266,7 +266,7 @@ class MapsState extends State<Maps> {
     LatLng end = _destination!;
 
     String url =
-        "https://maps.googleapis.com/maps/api/directions/json?origin=${start.latitude},${start.longitude}&destination=${end.latitude},${end.longitude}&key=AIzaSyCiTJPWfFvwL-6mh-pz7lanrPKNKbTzvNw";
+        "https://maps.googleapis.com/maps/api/directions/json?origin=${start.latitude},${start.longitude}&destination=${end.latitude},${end.longitude}&git";
 
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
