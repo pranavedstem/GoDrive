@@ -7,6 +7,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
+
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print("🔔 Background Message: ${message.notification?.title}");
@@ -14,10 +16,13 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   await Firebase.initializeApp();
   await FirebaseNotification().initNotifications();
-
+  await FirebaseNotification.init();
+  
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  
 
   runApp(
     MultiProvider(

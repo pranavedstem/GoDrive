@@ -1,6 +1,7 @@
 import 'package:dummyprojecr/view/screens/home.dart';
 import 'package:dummyprojecr/view/screens/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -10,9 +11,57 @@ class SignInPage extends StatefulWidget {
 }
 
 class SignInPageState extends State<SignInPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
-  String _email = '';
-  String _password = '';
+
+  String email = "";
+  String password = "";
+
+ bool isLoading = false;
+
+  Future<void> _login() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        isLoading = true;
+      });
+
+      try {
+       
+        UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+
+        User? user = userCredential.user;
+
+        if (user != null) {
+          print("✅ Login Successful: ${user.uid}");
+
+         
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(userId: user.uid,),
+            ),
+          );
+        }
+      } catch (e) {
+        print("❌ Login Failed: $e");
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Login Failed: ${e.toString()}"),
+            backgroundColor: Colors.red,
+          ),
+        );
+      } finally {
+        setState(() {
+          isLoading = false;
+        });
+      }
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +104,7 @@ class SignInPageState extends State<SignInPage> {
                             }
                             return null;
                           },
-                          onSaved: (value) => _email = value ?? '',
+                         onChanged: (value) => email = value,
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
@@ -69,31 +118,11 @@ class SignInPageState extends State<SignInPage> {
                             }
                             return null;
                           },
-                          onSaved: (value) => _password = value ?? '',
+                          onChanged: (value) => password = value,
                         ),
                         const SizedBox(height: 20),
                         ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              _formKey.currentState!.save();
-                              if (_email == SignUpPage.user?.email &&
-                                  _password == SignUpPage.user?.password) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        HomeScreen(user: SignUpPage.user!),
-                                  ),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content:
-                                          Text('Invalid email or password')),
-                                );
-                              }
-                            }
-                          },
+                          onPressed: _login,
                           child: const Text('Sign In'),
                         ),
                       ],

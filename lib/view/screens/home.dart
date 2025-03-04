@@ -1,16 +1,16 @@
-import 'package:dummyprojecr/models/signupmodel.dart';
+
 import 'package:dummyprojecr/view/screens/home_screen.dart';
 import 'package:dummyprojecr/view/screens/profile.dart';
-import 'package:dummyprojecr/view/screens/service_screen.dart';
+
 
 import 'package:dummyprojecr/viewModel/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
-  final User user;
-
-  const HomeScreen({super.key, required this.user});
+  // final User user;
+  final String userId;
+  const HomeScreen({super.key, required this.userId});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -34,8 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
         viewModel: homeViewModel,
         address: '',
       ),
-      const ServiceScreen(),
-      ProfilePage(user: widget.user),
+      // const ServiceScreen(),
+      ProfilePage(userId: widget.userId),
     ];
 
     return Scaffold(
@@ -48,10 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dataset_rounded),
-            label: 'Services',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.dataset_rounded),
+          //   label: 'Services',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_rounded),
             label: 'Account',

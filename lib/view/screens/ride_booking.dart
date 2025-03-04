@@ -66,7 +66,7 @@ class RideBookingScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ElevatedButton(
-                          onPressed: () => viewModel.bookRide(context),
+                          onPressed: () => viewModel.bookRide(context,),
                           style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                           child: const Text("Book Ride"),
                         ),

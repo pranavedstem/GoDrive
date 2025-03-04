@@ -1,4 +1,5 @@
 import 'package:dummyprojecr/models/ride_model.dart';
+import 'package:dummyprojecr/services/notification.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,7 +19,8 @@ class RideBookingViewModel extends ChangeNotifier {
   }
 
   void bookRide(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Ride Booked Successfully!")));
+    // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Ride Booked Successfully!")));
+    FirebaseNotification.showInstantNotification("Ride Booked", "Your Ride Booked Successfully");
   }
 
   void cancelRide(BuildContext context) {

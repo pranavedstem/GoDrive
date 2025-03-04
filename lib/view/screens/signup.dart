@@ -1,10 +1,11 @@
-import 'package:dummyprojecr/view/screens/home.dart';
-import 'package:dummyprojecr/models/signupmodel.dart';
+
 import 'package:dummyprojecr/view/screens/signin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUpPage extends StatefulWidget {
-  static User? user;
+  // static User? user;
 
   const SignUpPage({super.key});
 
@@ -13,9 +14,41 @@ class SignUpPage extends StatefulWidget {
 }
 
 class SignUpPageState extends State<SignUpPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final _formKey = GlobalKey<FormState>();
-  final User _user =
-      User(name: '', phoneNumber: '', email: '', username: '', password: '');
+  // final User _user =
+  //     User(name: '', phoneNumber: '', email: '', username: '', password: '');
+ String name = "";
+  String phone = "";
+  String email = "";
+  String username = "";
+  String password = ""; 
+
+  Future<void> _signup() async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+
+        await _firestore.collection("users").doc(userCredential.user!.uid).set({
+          "name": name,
+          "phone": phone,
+          "email": email,
+          "username": username,
+          "password": password,
+        });
+
+        print("User registered: ${userCredential.user!.email}");
+        Navigator.pop(context, MaterialPageRoute(
+                          builder: (context) => const SignInPage()),); // Redirect to login screen
+      } catch (e) {
+        print("Signup Error: $e");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +87,7 @@ class SignUpPageState extends State<SignUpPage> {
                           }
                           return null;
                         },
-                        onSaved: (value) => _user.name = value ?? '',
+                        onChanged: (value) => name = value,
                       ),
                       TextFormField(
                         decoration:
@@ -66,7 +99,7 @@ class SignUpPageState extends State<SignUpPage> {
                           }
                           return null;
                         },
-                        onSaved: (value) => _user.phoneNumber = value ?? '',
+                       onChanged: (value) => phone = value,
                       ),
                       TextFormField(
                         decoration: const InputDecoration(labelText: 'Email'),
@@ -76,7 +109,7 @@ class SignUpPageState extends State<SignUpPage> {
                           }
                           return null;
                         },
-                        onSaved: (value) => _user.email = value ?? '',
+                        onChanged: (value) => email = value,
                       ),
                       TextFormField(
                         decoration:
@@ -87,7 +120,7 @@ class SignUpPageState extends State<SignUpPage> {
                           }
                           return null;
                         },
-                        onSaved: (value) => _user.username = value ?? '',
+                        onChanged: (value) => username = value,
                       ),
                       TextFormField(
                         decoration:
@@ -99,25 +132,12 @@ class SignUpPageState extends State<SignUpPage> {
                           }
                           return null;
                         },
-                        onSaved: (value) => _user.password = value ?? '',
+                       onChanged: (value) => password = value,
                       ),
                       const SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            SignUpPage.user = _user;
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomeScreen(
-                                  user: _user,
-                                ),
-                              ),
-                            );
-                          }
-                        },
-                        child: const Text('Submit'),
+                        onPressed: _signup,
+                        child: const Text('Signup'),
                       ),
                     ],
                   ),
